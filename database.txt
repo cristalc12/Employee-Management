@@ -17,7 +17,7 @@ CREATE TABLE address (
     pronoun varchar(10) NOT NULL,
     race varchar(50) NOT NULL,
     dob date NOT NULL,
-    mobile int(10) NOT NULL
+    mobile varchar(10) NOT NULL
 ) 
 
 /*Creates index for the foreign keys. Use them after the tables are made.**/
