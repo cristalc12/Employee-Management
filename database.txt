@@ -1,6 +1,6 @@
 /* Alter Employee Table to have SSN */
 ALTER TABLE employees
-ADD ssn int(9);
+ADD ssn varchar(9) UNIQUE;
 
 /*Address Table */
 
@@ -16,7 +16,7 @@ CREATE TABLE address (
     gender varchar(1) NOT NULL,
     pronoun varchar(10) NOT NULL,
     race varchar(50) NOT NULL,
-    dob int(6) NOT NULL,
+    dob date NOT NULL,
     mobile int(10) NOT NULL
 ) 
 
