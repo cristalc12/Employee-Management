@@ -19,6 +19,25 @@ CREATE TABLE address (
     dob date NOT NULL,
     mobile varchar(10) NOT NULL
 ) 
+/* Insert data for address */
+
+INSERT INTO address (empid, Name, city, AddressLine1, AddressLine2, State, Country, PostalCode, gender, pronoun, race, dob, mobile)
+VALUES
+(1, 'Snoopy Beagle', 'New York', '123 Main St', NULL, 'NY', 'USA', '10001', 'M', 'he/him', 'White', '2022-08-01', '1234567890'),
+(2, 'Charlie Brown', 'Los Angeles', '456 Elm St', NULL, 'CA', 'USA', '90001', 'F', 'she/her', 'Black', '2022-07-01', '9876543210'),
+(3, 'Lucy Doctor', 'Chicago', '789 Oak St', NULL, 'IL', 'USA', '60601', 'F', 'she/her', 'Asian', '2022-07-03', '4567890123'),
+(4, 'Pepermint Patti', 'Houston', '101 Pine St', NULL, 'TX', 'USA', '77001', 'M', 'he/him', 'Hispanic', '2022-08-02', '7890123456'),
+(5, 'Linus Blanket', 'San Francisco', '202 Cedar St', NULL, 'CA', 'USA', '94101', 'M', 'he/him', 'White', '2022-09-01', '2345678901'),
+(6, 'PigPin Dusty', 'Miami', '303 Maple St', NULL, 'FL', 'USA', '33101', 'M', 'he/him', 'Black', '2022-10-01', '8901234567'),
+(7, 'Scooby Doo', 'Dallas', '404 Birch St', NULL, 'TX', 'USA', '75201', 'M', 'he/him', 'Hispanic', '1973-07-03', '3456789012'),
+(8, 'Shaggy Rodgers', 'Seattle', '505 Walnut St', NULL, 'WA', 'USA', '98101', 'M', 'he/him', 'Asian', '1973-07-11', '9012345678'),
+(9, 'Velma Dinkley', 'Atlanta', '606 Pineapple St', NULL, 'GA', 'USA', '30301', 'F', 'she/her', 'White', '1973-07-21', '6789012345'),
+(10, 'Daphne Blake', 'Boston', '707 Cherry St', NULL, 'MA', 'USA', '02101', 'F', 'she/her', 'Hispanic', '1973-07-30', '3456789012'),
+(11, 'Bugs Bunny', 'Philadelphia', '808 Lemon St', NULL, 'PA', 'USA', '19101', 'M', 'he/him', 'White', '1934-07-01', '1234567890'),
+(12, 'Daffy Duck', 'Phoenix', '909 Banana St', NULL, 'AZ', 'USA', '85001', 'M', 'he/him', 'Black', '1935-04-01', '2345678901'),
+(13, 'Porky Pig', 'Denver', '1010 Grape St', NULL, 'CO', 'USA', '80201', 'M', 'he/him', 'White', '1935-08-12', '4567890123'),
+(14, 'Elmer Fudd', 'Detroit', '1111 Peach St', NULL, 'MI', 'USA', '48201', 'M', 'he/him', 'Black', '1934-08-01', '2345678901'),
+(15, 'Marvin Martian', 'Minneapolis', '1212 Orange St', NULL, 'MN', 'USA', '55401', 'M', 'he/him', 'White', '1937-05-01', '8901234567');
 
 /*Creates index for the foreign keys. Use them after the tables are made.**/
 
