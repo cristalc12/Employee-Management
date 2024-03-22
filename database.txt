@@ -37,18 +37,15 @@ CREATE INDEX idx_address ON address(empid);
 /*Sets up the Primary-Foreign Key Connections */
 
 ALTER TABLE employees
-ADD PRIMARY KEY (empid),
-
-ALTER TABLE employee_division
 ADD CONSTRAINT FK_employee_division FOREIGN KEY (empid) REFERENCES employee_division(empid);
 
-ALTER TABLE payroll
+ALTER TABLE employees
 ADD CONSTRAINT FK_payroll FOREIGN KEY (empid) REFERENCES payroll(empid);
 
-ALTER TABLE employee_job_titles
+ALTER TABLE employees
 ADD CONSTRAINT FK_employee_job_titles FOREIGN KEY (empid) REFERENCES employee_job_titles(empid);
 
-ALTER TABLE address
+ALTER TABLE employees
 ADD CONSTRAINT FK_address FOREIGN KEY (empid) REFERENCES address(empid);
 
 /*Connects primary key of employees to foreign keys of employee_division, payroll, employee_job_titles, and address */
@@ -58,7 +55,6 @@ ADD PRIMARY KEY (div_ID),
 ADD CONSTRAINT FK_division FOREIGN KEY (ID) REFERENCES division(ID);
 
 /*Connects primary key of employee_division to foreign key of division */
-
 
 ALTER TABLE employee_job_titles  
 ADD PRIMARY KEY (job_title_id),
