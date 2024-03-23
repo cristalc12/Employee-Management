@@ -71,7 +71,7 @@ ADD CONSTRAINT FK_address FOREIGN KEY (empid) REFERENCES address(empid);
 
 ALTER TABLE employee_division 
 ADD PRIMARY KEY (div_ID),
-ADD CONSTRAINT FK_division FOREIGN KEY (ID) REFERENCES division(ID);
+ADD CONSTRAINT FK_division FOREIGN KEY (div_ID) REFERENCES division(ID);
 
 /*Connects primary key of employee_division to foreign key of division */
 
@@ -80,3 +80,4 @@ ADD PRIMARY KEY (job_title_id),
 ADD CONSTRAINT FK_job_titles FOREIGN KEY (job_title_id) REFERENCES job_titles(job_title_id);
 
 /*Connects primary key of employee_job_titles to foreign key of division job_titles*/
+
