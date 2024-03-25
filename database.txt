@@ -6,78 +6,31 @@ ADD ssn varchar(9) UNIQUE;
 
 CREATE TABLE address (
     empid int NOT NULL,
+    ID int NOT NULL,
     Name varchar(100) DEFAULT NULL,
-    city varchar(50) NOT NULL,
-    AddressLine1 varchar(50) NOT NULL,
-    AddressLine2 varchar(50) DEFAULT NULL,
-    State varchar(50) DEFAULT NULL,
-    Country varchar(50) NOT NULL,
-    PostalCode varchar(15) NOT NULL,
     gender varchar(1) NOT NULL,
     pronoun varchar(10) NOT NULL,
     race varchar(50) NOT NULL,
-    dob date NOT NULL,
-    mobile varchar(10) NOT NULL
+    DOB date NOT NULL,
+    mobile varchar(10) NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (empid) REFERENCES employees(empid)
 ) 
-/* Insert data for address */
+/*State Table */
 
-INSERT INTO address (empid, Name, city, AddressLine1, AddressLine2, State, Country, PostalCode, gender, pronoun, race, dob, mobile)
-VALUES
-(1, 'Snoopy Beagle', 'New York', '123 Main St', NULL, 'NY', 'USA', '10001', 'M', 'he/him', 'White', '2022-08-01', '1234567890'),
-(2, 'Charlie Brown', 'Los Angeles', '456 Elm St', NULL, 'CA', 'USA', '90001', 'F', 'she/her', 'Black', '2022-07-01', '9876543210'),
-(3, 'Lucy Doctor', 'Chicago', '789 Oak St', NULL, 'IL', 'USA', '60601', 'F', 'she/her', 'Asian', '2022-07-03', '4567890123'),
-(4, 'Pepermint Patti', 'Houston', '101 Pine St', NULL, 'TX', 'USA', '77001', 'M', 'he/him', 'Hispanic', '2022-08-02', '7890123456'),
-(5, 'Linus Blanket', 'San Francisco', '202 Cedar St', NULL, 'CA', 'USA', '94101', 'M', 'he/him', 'White', '2022-09-01', '2345678901'),
-(6, 'PigPin Dusty', 'Miami', '303 Maple St', NULL, 'FL', 'USA', '33101', 'M', 'he/him', 'Black', '2022-10-01', '8901234567'),
-(7, 'Scooby Doo', 'Dallas', '404 Birch St', NULL, 'TX', 'USA', '75201', 'M', 'he/him', 'Hispanic', '1973-07-03', '3456789012'),
-(8, 'Shaggy Rodgers', 'Seattle', '505 Walnut St', NULL, 'WA', 'USA', '98101', 'M', 'he/him', 'Asian', '1973-07-11', '9012345678'),
-(9, 'Velma Dinkley', 'Atlanta', '606 Pineapple St', NULL, 'GA', 'USA', '30301', 'F', 'she/her', 'White', '1973-07-21', '6789012345'),
-(10, 'Daphne Blake', 'Boston', '707 Cherry St', NULL, 'MA', 'USA', '02101', 'F', 'she/her', 'Hispanic', '1973-07-30', '3456789012'),
-(11, 'Bugs Bunny', 'Philadelphia', '808 Lemon St', NULL, 'PA', 'USA', '19101', 'M', 'he/him', 'White', '1934-07-01', '1234567890'),
-(12, 'Daffy Duck', 'Phoenix', '909 Banana St', NULL, 'AZ', 'USA', '85001', 'M', 'he/him', 'Black', '1935-04-01', '2345678901'),
-(13, 'Porky Pig', 'Denver', '1010 Grape St', NULL, 'CO', 'USA', '80201', 'M', 'he/him', 'White', '1935-08-12', '4567890123'),
-(14, 'Elmer Fudd', 'Detroit', '1111 Peach St', NULL, 'MI', 'USA', '48201', 'M', 'he/him', 'Black', '1934-08-01', '2345678901'),
-(15, 'Marvin Martian', 'Minneapolis', '1212 Orange St', NULL, 'MN', 'USA', '55401', 'M', 'he/him', 'White', '1937-05-01', '8901234567');
+CREATE TABLE state (
+    ID int NOT NULL,
+    state varchar(50) DEFAULT NULL,
+    country varchar(50) NOT NULL,
+    FOREIGN KEY (ID) REFERENCES address(ID)
+) 
+/*City Table */
 
-/*Creates index for the foreign keys. Use them after the tables are made.**/
-
-CREATE INDEX idx_employee_division ON employee_division(empid);
-
-CREATE INDEX idx_payroll ON payroll(empid);
-
-CREATE INDEX idx_employee_job_titles ON employee_job_titles(empid);
-
-CREATE INDEX idx_job_titles ON job_titles(job_title_id);
-
-CREATE INDEX idx_division ON division(ID);
-
-CREATE INDEX idx_address ON address(empid);
-
-/*Sets up the Primary-Foreign Key Connections */
-
-ALTER TABLE employees
-ADD CONSTRAINT FK_employee_division FOREIGN KEY (empid) REFERENCES employee_division(empid);
-
-ALTER TABLE employees
-ADD CONSTRAINT FK_payroll FOREIGN KEY (empid) REFERENCES payroll(empid);
-
-ALTER TABLE employees
-ADD CONSTRAINT FK_employee_job_titles FOREIGN KEY (empid) REFERENCES employee_job_titles(empid);
-
-ALTER TABLE employees
-ADD CONSTRAINT FK_address FOREIGN KEY (empid) REFERENCES address(empid);
-
-/*Connects primary key of employees to foreign keys of employee_division, payroll, employee_job_titles, and address */
-
-ALTER TABLE employee_division 
-ADD PRIMARY KEY (div_ID),
-ADD CONSTRAINT FK_division FOREIGN KEY (div_ID) REFERENCES division(ID);
-
-/*Connects primary key of employee_division to foreign key of division */
-
-ALTER TABLE employee_job_titles  
-ADD PRIMARY KEY (job_title_id),
-ADD CONSTRAINT FK_job_titles FOREIGN KEY (job_title_id) REFERENCES job_titles(job_title_id);
-
-/*Connects primary key of employee_job_titles to foreign key of division job_titles*/
-
+CREATE TABLE city (
+    ID int NOT NULL,
+    city varchar(50) NOT NULL,
+    addressLine1 varchar(50) NOT NULL,
+    addressLine2 varchar(50) DEFAULT NULL,
+    postalCode varchar(15) NOT NULL,
+    FOREIGN KEY (ID) REFERENCES address(ID)
+) 
